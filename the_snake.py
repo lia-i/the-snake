@@ -38,16 +38,16 @@ pg.display.set_caption('Змейка')
 clock = pg.time.Clock()
 
 
-def handle_keys(object):
+def handle_keys(moved_object):
     """Функция обработки действий пользователя"""
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
             raise SystemExit
         if event.type == pg.KEYDOWN:
-            object.next_direction = KEYDOWN_DIRECTION_DICT.get(
-                (object.direction, event.key),
-                object.direction
+            moved_object.next_direction = KEYDOWN_DIRECTION_DICT.get(
+                (moved_object.direction, event.key),
+                moved_object.direction
             )
 
 
