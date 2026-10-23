@@ -1,4 +1,5 @@
 from random import randint
+
 import pygame as pg
 
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
