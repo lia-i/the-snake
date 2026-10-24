@@ -19,7 +19,7 @@ BORDER_COLOR = (93, 216, 228)
 APPLE_COLOR = (255, 0, 0)
 SNAKE_COLOR = (0, 255, 0)
 
-SPEED = 20
+SPEED = 7
 
 KEYDOWN_DIRECTION_DICT = {
     (LEFT, pg.K_UP): UP,
@@ -92,7 +92,7 @@ class Apple(GameObject):
 
     def __init__(self):
         super().__init__(APPLE_COLOR)
-        self.randomize_position(occupied_positions=(CENTER))
+        self.randomize_position(occupied_positions=(CENTER,))
 
     def draw(self):
         """Метод для отрисовки яблока."""
@@ -137,10 +137,10 @@ class Snake(GameObject):
         else:
             self.last = None
 
-    def reset(self, occupied_position=None):
+    def reset(self, occupied_positions=None):
         """Метод, с помощью которого сбрасываются изменяемые свойства змеи."""
-        if occupied_position:
-            self.randomize_position(occupied_position)
+        if occupied_positions:
+            self.randomize_position(occupied_positions)
         else:
             self.position = CENTER
         self.positions = [self.position]
